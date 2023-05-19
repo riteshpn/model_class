@@ -13,19 +13,24 @@ class _NotificationPushState extends State<NotificationPush> {
 
   @override
   void initState() {
-    notificationServices.isTokenRefresh(); 
+    notificationServices.isTokenRefresh();
+    notificationServices.firebaseInit(context);
     notificationServices.requestNotificationPermisson();
     notificationServices.getDeviceToken().then((value) {
       print('device Token');
       print(value);
+      
     });
 
     super.initState();
   }
 
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber.shade100,
+      appBar: AppBar(
+        title: Text('Flutter Notification'),
+      ),
     );
   }
 }
