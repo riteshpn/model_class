@@ -43,12 +43,15 @@ class NotificationServices {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onDidReceiveNotificationResponse: (payload) {
-         if (message.data['type'] == 'msg'){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => MessageScreen(),));
+        if (message.data['type'] == 'msg') {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MessageScreen(
+                  id: message.data['id'],
+                ),
+              ));
         }
-        
-      
-        
       },
     );
     //  //new add
@@ -65,8 +68,6 @@ class NotificationServices {
         print(messege.data.toString());
         print(messege.data['type'].toString());
         print(messege.data['id'].toString());
-
-
       }
       initLocalNotification(context, messege);
       showNotification(messege);
@@ -79,8 +80,7 @@ class NotificationServices {
         'Hi you have recevied copl notification',
         importance: Importance.max);
     AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails('popop', 
-           'fgfgfg',
+        AndroidNotificationDetails('popop', 'fgfgfg',
             channelDescription: 'Hi you have recevied copl notification',
             importance: Importance.high,
             priority: Priority.high,
@@ -135,10 +135,6 @@ class NotificationServices {
       event.toString();
     });
 
-    void handleMessages(
-      BuildContext context, RemoteMessage message){
-       
-
-    }
+    void handleMessages(BuildContext context, RemoteMessage message) {}
   }
 }

@@ -29,7 +29,7 @@ class _NotificationPushState extends State<NotificationPush> {
     return Scaffold(
       backgroundColor: Colors.amber.shade100,
       appBar: AppBar(
-        title: Text('Flutter Notification'),
+        title: Text('Flutter Notification' ),
       ),
     );
   }
