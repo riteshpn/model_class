@@ -75,19 +75,19 @@ class NotificationServices {
   }
 
   Future<void> showNotification(RemoteMessage message) async {
-    AndroidNotificationChannel channel = AndroidNotificationChannel(
+    AndroidNotificationChannel  channel = AndroidNotificationChannel(
         Random.secure().nextInt(100000).toString(),
         'Hi you have recevied copl notification',
         importance: Importance.max);
     AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails('popop', 'fgfgfg',
+      const  AndroidNotificationDetails('popop', 'fgfgfg',
             channelDescription: 'Hi you have recevied copl notification',
             importance: Importance.high,
             priority: Priority.high,
             ticker: 'ticker');
 
     DarwinNotificationDetails darwinNotificationDetails =
-        DarwinNotificationDetails(
+     const   DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
@@ -135,6 +135,10 @@ class NotificationServices {
       event.toString();
     });
 
+
+
+   // ignore this statement 
     void handleMessages(BuildContext context, RemoteMessage message) {}
+
   }
 }
